@@ -63,7 +63,23 @@ and open the template in the editor.
                             <li>
 
                                 <select class="dropdown" name="listaProduto">
-                                    <option></option>
+                                    <?php  
+                                    //PASSO 01: Incluir as configurações de BDA
+                                    include "conexao_bd.php";
+                                    //PASSO 02: Criar SQL para buscar os produtos
+                                    $sql = "SELECT * FROM produto ORDER BY descricao";
+                                    $dados = retornarDados($sql);
+                                    while($linha = mysqli_fetch_assoc($dados))
+                                    {
+                                    ?>    
+                                        <option>
+                                            <?php 
+                                                echo $linha["descricao"];
+                                            ?>
+                                        </option>
+                                        <?php 
+                                    }
+                                    ?>
                                 </select>
                             </li>
                             <li>
@@ -81,8 +97,21 @@ and open the template in the editor.
                             <li>
 
                                 <select name="listaFormaPagamento"  class="dropdown">
-                                    <option></option>
-
+                                <?php  
+                                //PASSO 02: Criar SQL para buscar os produtos
+                                $sql = "SELECT * FROM forma_pagamento ORDER BY descricao";
+                                $dados = retornarDados($sql);
+                                while($linha = mysqli_fetch_assoc($dados))
+                                {
+                                ?>    
+                                <option>
+                                <?php 
+                                echo $linha["descricao"];
+                                ?>
+                                </option>
+                                <?php 
+                                }
+                                ?>
                                 </select>
 
                             </li>
