@@ -63,6 +63,7 @@ and open the template in the editor.
                             <li>
 
                                 <select class="dropdown" name="listaProduto">
+<<<<<<< HEAD
                                     <?php  
                                     //PASSO 01: Incluir as configurações de BDA
                                     include "conexao_bd.php";
@@ -72,12 +73,28 @@ and open the template in the editor.
                                     while($linha = mysqli_fetch_assoc($dados))
                                     {
                                     ?>    
+=======
+                                    <?php 
+                                    //1º PASSO: Incluir as configurações de BDA
+                                    include "conexao_bd.php";
+                                    //2º PASSO: Criar o SQL para buscar os produtos
+                                    $sql = "SELECT * FROM produto ORDER BY descricao";
+                                    $dados = retornarDados($sql);
+
+                                    while($linha = mysqli_fetch_assoc($dados))
+                                    {
+                                    ?>
+>>>>>>> 61636a04aa33473f104d26fe59aca92acd837abe
                                         <option>
                                             <?php 
                                                 echo $linha["descricao"];
                                             ?>
                                         </option>
+<<<<<<< HEAD
                                         <?php 
+=======
+                                    <?php                       
+>>>>>>> 61636a04aa33473f104d26fe59aca92acd837abe
                                     }
                                     ?>
                                 </select>
@@ -97,6 +114,7 @@ and open the template in the editor.
                             <li>
 
                                 <select name="listaFormaPagamento"  class="dropdown">
+<<<<<<< HEAD
                                 <?php  
                                 //PASSO 02: Criar SQL para buscar os produtos
                                 $sql = "SELECT * FROM forma_pagamento ORDER BY descricao";
@@ -112,6 +130,26 @@ and open the template in the editor.
                                 <?php 
                                 }
                                 ?>
+=======
+                                <?php 
+                                    
+                                    //2º PASSO: Criar o SQL para buscar as formas de pagamento
+                                    $sql = "SELECT * FROM forma_pagamento ORDER BY descricao";
+                                    $dados = retornarDados($sql);
+
+                                    while($linha = mysqli_fetch_assoc($dados))
+                                    {
+                                    ?>
+                                        <option>
+                                            <?php 
+                                                echo $linha["descricao"];
+                                            ?>
+                                        </option>
+                                    <?php                       
+                                    }
+                                    ?>
+
+>>>>>>> 61636a04aa33473f104d26fe59aca92acd837abe
                                 </select>
 
                             </li>

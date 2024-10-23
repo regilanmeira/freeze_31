@@ -26,6 +26,10 @@
     {
         $linha = mysqli_fetch_assoc($dados);
         $hash = $linha["senha_usuario"];
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61636a04aa33473f104d26fe59aca92acd837abe
         $retorno = password_verify($senha_usuario,$hash);
 
         if ($retorno)
@@ -34,10 +38,18 @@
         }
         else
         {
+<<<<<<< HEAD
             echo "<h1> Senha inválida </h1>";
         }
 
         
+=======
+            echo "<h1>Senha inválida</h1>";
+        }
+            
+
+       
+>>>>>>> 61636a04aa33473f104d26fe59aca92acd837abe
     }
     ?>
     
